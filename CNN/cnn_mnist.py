@@ -8,9 +8,6 @@ import tensorflow as tf
 tf.logging.set_verbosity(tf.logging.INFO)
 
 
-if __name__ == "__main__":
-	tf.app.run()
-
 def cnn_model_fn(features, labels, mode):
   # Input Layer
   input_layer = tf.reshape(features["x"], [-1, 28, 28, 1])
@@ -107,3 +104,6 @@ def main(unused_argv):
     shuffle=False)
   eval_results = mnist_classifier.evaluate(input_fn=eval_input_fn)
   print(eval_results)
+
+if __name__ == "__main__":
+	tf.app.run()
