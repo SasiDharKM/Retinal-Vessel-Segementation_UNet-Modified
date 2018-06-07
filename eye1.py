@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 500 x 250
-img = cv2.imread('C:/Users/bharat97/Desktop/SUMMER_2k18/03_test.tif')
+img = cv2.imread('35_training.tif')
 
 img[:,:,0] = 0
 img[:,:,2] = 0
@@ -18,16 +18,16 @@ sxy = np.multiply(sobelx[:,:,1], sobely[:,:,1])
 phase=cv2.phase(sobelx,sobely,angleInDegrees=True)
 mag = (sx + sy)
 
-sx = np.divide(sx, mag)
-sy = np.divide(sy, mag)
-sxy = np.divide(sxy, mag)
+# sx = np.divide(sx, mag)
+# sy = np.divide(sy, mag)
+# sxy = np.divide(sxy, mag)
 
-sx = np.nan_to_num(sx, copy = False)
-sy = np.nan_to_num(sy, copy = False)
-sxy = np.nan_to_num(sxy, copy = False)
+# sx = np.nan_to_num(sx, copy = False)
+# sy = np.nan_to_num(sy, copy = False)
+# sxy = np.nan_to_num(sxy, copy = False)
 
-old_err_state = np.seterr(divide='raise')
-ignored_states = np.seterr(**old_err_state)
+# old_err_state = np.seterr(divide='raise')
+# ignored_states = np.seterr(**old_err_state)
 
 w,h = mag.shape
 
@@ -81,10 +81,10 @@ for i in range(w):
 
 
 
-#cv2.imshow('sobelx',sobelx)
-#cv2.imshow('sobely',sobely)
-#cv2.imshow('phase',phase)
-#cv2.imshow('mag',mag)
-#
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
+cv2.imshow('sobelx',sobelx)
+cv2.imshow('sobely',sobely)
+cv2.imshow('phase',phase)
+cv2.imshow('mag',mag)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
