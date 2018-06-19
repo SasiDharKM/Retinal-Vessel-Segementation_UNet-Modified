@@ -4,6 +4,18 @@ import cv2
 
 from help_functions import *
 
+def my_PreProc(data):
+    assert(len(data.shape)==4)
+    assert (data.shape[1]==3)
+    
+    #greyscale conversion
+    train_imgs = rgb2gray(data)
+    
+    train_imgs = dataset_normalized(train_imgs)
+    train_imgs = clahe_equalized(train_imgs)
+    train_imgs = adjust_gamma(train_imgs, 1.2)
+    train_imgs = train_imgs/255.  
+    return train_imgs
 
 ## Histogram Equalisation (not used, can be used)
 def histo_equalized(imgs):
