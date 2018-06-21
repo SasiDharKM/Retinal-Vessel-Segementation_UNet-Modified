@@ -54,3 +54,16 @@ def get_unet(n_ch,patch_height,patch_width):
     model.compile(optimizer='sgd', loss='categorical_crossentropy',metrics=['accuracy'])
 
     return model
+
+# load some parameters from the configuration.txt in ../.
+
+config = ConfigParser.RawConfigParser()
+config.read('configuration.txt') ## ../. doesn't matter as this is just 
+#patch to the datasets
+path_data = config.get('data paths', 'path_local')
+#Experiment name
+name_experiment = config.get('experiment name', 'name')
+#training settings
+N_epochs = int(config.get('training settings', 'N_epochs'))
+batch_size = int(config.get('training settings', 'batch_size'))
+
