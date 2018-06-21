@@ -94,3 +94,16 @@ print model.output_shape
 plot(model, to_file='./'+name_experiment+'/'+name_experiment + '_model.png')
 json_string = model.to_json()
 open('./'+name_experiment+'/'+name_experiment +'_architecture.json', 'w').write(json_string)
+
+#Training code
+
+checkpointer = ModelCheckpoint(filepath='./'+name_experiment+'/'+name_experiment +'_best_weights.h5', 
+	verbose=1, monitor='val_loss', mode='auto', save_best_only=True)
+
+patches_masks_train = masks_Unet(patches_masks_train)  #reduce memory consumption
+
+model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, 
+	verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+
+
+
