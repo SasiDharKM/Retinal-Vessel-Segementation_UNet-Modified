@@ -67,3 +67,15 @@ name_experiment = config.get('experiment name', 'name')
 N_epochs = int(config.get('training settings', 'N_epochs'))
 batch_size = int(config.get('training settings', 'batch_size'))
 
+
+# Load the image patch and mask patches
+
+patches_imgs_train, patches_masks_train = get_data_training(
+    DRIVE_train_imgs_original = path_data + config.get('data paths', 'train_imgs_original'),
+    DRIVE_train_groudTruth = path_data + config.get('data paths', 'train_groundTruth'),  #masks
+    patch_height = int(config.get('data attributes', 'patch_height')),
+    patch_width = int(config.get('data attributes', 'patch_width')),
+    N_subimgs = int(config.get('training settings', 'N_subimgs')),
+    inside_FOV = config.getboolean('training settings', 'inside_FOV') #select the patches only inside the FOV  (default == True)
+)
+
