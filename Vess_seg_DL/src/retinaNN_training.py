@@ -105,5 +105,6 @@ patches_masks_train = masks_Unet(patches_masks_train)  #reduce memory consumptio
 model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, 
 	verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
 
-
+#Save the model
+model.save_weights('./'+name_experiment+'/'+name_experiment +'_last_weights.h5', overwrite=True)
 
