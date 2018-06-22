@@ -68,3 +68,15 @@ def get_datasets(imgs_dir,groundTruth_dir,borderMasks_dir,train_test="null"):
 if not os.path.exists(dataset_path):
     os.makedirs(dataset_path)
 
+imgs_train, groundTruth_train, border_masks_train = get_datasets(original_imgs_train,groundTruth_imgs_train,borderMasks_imgs_train,"train")
+print "saving train datasets"
+write_hdf5(imgs_train, dataset_path + "DRIVE_dataset_imgs_train.hdf5")
+write_hdf5(groundTruth_train, dataset_path + "DRIVE_dataset_groundTruth_train.hdf5")
+write_hdf5(border_masks_train,dataset_path + "DRIVE_dataset_borderMasks_train.hdf5")
+
+
+imgs_test, groundTruth_test, border_masks_test = get_datasets(original_imgs_test,groundTruth_imgs_test,borderMasks_imgs_test,"test")
+print "saving test datasets"
+write_hdf5(imgs_test,dataset_path + "DRIVE_dataset_imgs_test.hdf5")
+write_hdf5(groundTruth_test, dataset_path + "DRIVE_dataset_groundTruth_test.hdf5")
+write_hdf5(border_masks_test,dataset_path + "DRIVE_dataset_borderMasks_test.hdf5")
