@@ -28,3 +28,11 @@ if sys.platform=='win32':
 else:
     os.system('cp configuration.txt ./' +name_experiment+'/'+name_experiment+'_configuration.txt')
 
+# Running the experiment
+
+if nohup:
+    print "\n2. Run the training on GPU with nohup"
+    os.system(run_GPU +' nohup python -u ./src/retinaNN_training.py > ' +'./'+name_experiment+'/'+name_experiment+'_training.nohup')
+else:
+    print "\n2. Run the training on GPU (no nohup)"
+    os.system(run_GPU +' python ./src/retinaNN_training.py')
