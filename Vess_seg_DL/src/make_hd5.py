@@ -14,3 +14,9 @@ borderMasks_imgs_train = "./DRIVE/training/mask/"
 original_imgs_test = "./DRIVE/test/images/"
 groundTruth_imgs_test = "./DRIVE/test/1st_manual/"
 borderMasks_imgs_test = "./DRIVE/test/mask/"
+
+Nimgs = 20
+channels = 3
+height = 584
+width = 565
+dataset_path = "./DRIVE_datasets_training_testing/"
