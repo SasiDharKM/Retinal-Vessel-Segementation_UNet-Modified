@@ -15,7 +15,7 @@ run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=gpu,floatX=fl
 result_dir = name_experiment
 print "\n1. Create directory for the results (if not already existing)"
 if os.path.exists(result_dir):
-    print "Dir already existing"
+    print ("Dir already existing")
 elif sys.platform=='win32':
     os.system('mkdir ' + result_dir)
 else:
@@ -31,8 +31,8 @@ else:
 # Running the experiment
 
 if nohup:
-    print "\n2. Run the training on GPU with nohup"
+    print ("\n2. Run the training on GPU with nohup")
     os.system(run_GPU +' nohup python -u ./src/retinaNN_training.py > ' +'./'+name_experiment+'/'+name_experiment+'_training.nohup')
 else:
-    print "\n2. Run the training on GPU (no nohup)"
+    print ("\n2. Run the training on GPU (no nohup)")
     os.system(run_GPU +' python ./src/retinaNN_training.py')
