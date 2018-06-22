@@ -13,7 +13,7 @@ run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=gpu,floatX=fl
 # making a directory if not present 
 
 result_dir = name_experiment
-print "\n1. Create directory for the results (if not already existing)"
+print ("\n1. Create directory for the results (if not already existing)")
 if os.path.exists(result_dir):
     print ("Dir already existing")
 elif sys.platform=='win32':
@@ -22,7 +22,7 @@ else:
     os.system('mkdir -p ' +result_dir)
 
 
-print "copy the configuration file in the results folder"
+print ("copy the configuration file in the results folder")
 if sys.platform=='win32':
     os.system('copy configuration.txt .\\' +name_experiment+'\\'+name_experiment+'_configuration.txt')
 else:
