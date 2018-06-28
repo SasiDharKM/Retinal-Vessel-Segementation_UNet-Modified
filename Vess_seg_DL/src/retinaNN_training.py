@@ -89,8 +89,13 @@ n_ch = patches_imgs_train.shape[1]
 patch_height = patches_imgs_train.shape[2]
 patch_width = patches_imgs_train.shape[3]
 model = get_unet(n_ch, patch_height, patch_width)
+<<<<<<< HEAD
 print ("Check: final output of the network:")
 print (model.output_shape)
+=======
+print "Check: final output of the network:"
+print model.output_shape
+>>>>>>> 6340a8d71b6f2c46763171d83dc159e05455cdd1
 plot(model, to_file='./'+name_experiment+'/'+name_experiment + '_model.png')
 json_string = model.to_json()
 open('./'+name_experiment+'/'+name_experiment +'_architecture.json', 'w').write(json_string)
