@@ -8,7 +8,7 @@ config.readfp(open(r'./configuration.txt'))
 name_experiment = config.get('experiment name', 'name')
 nohup = config.getboolean('testing settings', 'nohup')   #std output on log file?
 
-run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=gpu,floatX=float32 '
+run_GPU = '' if sys.platform == 'win32' else ' THEANO_FLAGS=device=cuda,floatX=float32 '
 
 #create a folder for the results if not existing already
 result_dir = name_experiment
