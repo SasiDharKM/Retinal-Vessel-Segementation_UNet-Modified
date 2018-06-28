@@ -1,7 +1,7 @@
 import os, sys
 import configparser
 
-config = configparser.ConfigParser()
+config = configparser.vim ConfigParser()
 config.readfp(open(r'./configuration.txt'))
 
 
