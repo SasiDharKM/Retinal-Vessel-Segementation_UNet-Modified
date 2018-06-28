@@ -1,7 +1,7 @@
 import os, sys
-import ConfigParser
+import configparser
 
-config = ConfigParser.RawConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open(r'./configuration.txt'))
 
 
@@ -22,7 +22,7 @@ else:
     os.system('mkdir -p ' +result_dir)
 
 
-print ("copy the configuration file in the results folder")
+print ("copy the configuration file in the results folder")	
 if sys.platform=='win32':
     os.system('copy configuration.txt .\\' +name_experiment+'\\'+name_experiment+'_configuration.txt')
 else:
